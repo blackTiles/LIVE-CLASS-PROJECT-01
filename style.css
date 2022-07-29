@@ -80,7 +80,7 @@
     margin-bottom: 100px;
 }
 
-img[src="/assets/Image.png"]{
+img[src="./images/Image.png"]{
     position: absolute;
     left: 0;
     top:50px;
