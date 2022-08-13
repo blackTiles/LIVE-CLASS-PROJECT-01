@@ -27,6 +27,7 @@
 .navbar-container{
     margin:80px 0px;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
@@ -36,20 +37,24 @@
     align-items: center;
 }
 
-.navbar-container div ul{
+.navbar-container .list{
     display: flex;
     list-style: none;
-    width: 100%;
+    width: 0;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-grow: 1;
+    gap: 40px;
 }
 .navbar-container div ul li{
-    margin: 0px 1.5vw;
     color:var(--color1);
     font-family: var(--font1);
     font-weight: 500;
     font-size:1.25vw;
     cursor: pointer;
 }
-.list-item:nth-child(1){
+.list-item:nth-child(2){
     font-size: 1.5vw;
     font-weight: 800;
     border-bottom: 2px solid var(--color1);
@@ -58,6 +63,15 @@
 .navbar-container .button-group{
     display: flex;
     align-items: center;
+}
+.navbar-container div:nth-child(1){
+    order: 1;
+}
+.navbar-container div:nth-child(2){
+    order: 2;
+}
+.button-group{
+    order: 3;
 }
 
 .navbar-container .button-group button{
@@ -72,6 +86,22 @@
     color:var(--color3);
 }
 
+/* nav mobile  */
+.hamburger{
+    color: var(--color1);
+    display: none;
+}
+.hamburger span{
+    cursor:pointer;
+    font-size: 35px;
+}
+.close-btn{
+    display: none;
+    cursor:pointer;
+}
+
+
+
 .hero-container{
     display: flex;
     justify-content: center;
@@ -84,11 +114,15 @@
     position: absolute;
     left: 0;
     top:50px;
+    width: 29vw;
 }
 span.square{
     position: absolute;
     top: 380px;
-    left: 210px;
+    left: 13%;
+}
+span.square img{
+    width: 23vw;
 }
 span.globe{
     position: absolute;
@@ -170,4 +204,215 @@ span.star{
 }
 .icons span{
     margin: 0px 10px;
+}
+
+
+@media (max-width:1450px){
+    .hero-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin-bottom: 100px;
+    }
+    .person-image{
+        position: absolute;
+        left: 0;
+        top:50px;
+    }
+    span.globe{
+        position: absolute;
+        top:0;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+    span.star{
+        position: absolute;
+        top:50px;
+        right:0;
+    }
+    
+    .hero-container-right{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position:absolute;
+        width: 60%;
+        right:0;
+        top:80px;
+        padding: 100px 0px;
+    }
+}
+@media (max-width: 1100px){
+    .container section{
+        width: 95%; 
+    }
+    .navbar-container div:nth-child(1){
+        order: 1;
+    }
+    .navbar-container div:nth-child(2){
+        order: 3;
+    }
+    .button-group{
+        order: 2;
+    }
+
+    .hamburger{
+        display: inline-block;
+    }
+    .navbar-container .list{
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 2000;
+        top: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.87);
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 70px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 40px;
+    }
+    .close-btn{
+        display: inline-block;
+        position: absolute;
+        right: 25px;
+        top: 60px;
+        /* font-size: 35px; */
+    }
+    .navbar-container div ul li{
+        color:var(--color2);
+        font-family: var(--font1);
+        font-weight: 500;
+        font-size:20px;
+        cursor: pointer;
+    }
+    .list-item:nth-child(2){
+        font-size: 25px;
+        font-weight: 800;
+        border-bottom: 2px solid var(--color2);
+    }
+    span.square{
+        position: absolute;
+        top: 20%;
+        left: 35%;
+    }
+    span.square img{
+        width: 100%;
+    }
+    .person-img-cont{
+        margin: 0px auto;
+    }
+    .person-image{
+        position: relative;
+        left: 0;
+        top:0px;
+        width: 90%;
+    }
+    span.globe{
+        position: absolute;
+        top: -60px;
+        left: 30%;
+        transform: translate(0%, 0%);
+    }
+    span.globe img{
+        width: 50px;
+    }
+    span.star{
+        position: absolute;
+        top:-40px;
+        right:0px;
+    }
+    span.star img{
+        width: 50px;
+    }
+    .hero-container-right{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position:static;
+        width: 100%;
+        right:0;
+        top:80px;
+        padding: 100px 0px;
+    }
+    .hero-container-right h1{
+        font-family: var(--font1);
+        font-size: 40px;
+        text-align: center;
+    }
+    .hero-container-right p{
+        width: 90%;
+        height: fit-content;
+        text-align: center;
+        margin: 20px 0px;
+        text-align: center;
+        font-size: 20px;
+        color:var(--color3);
+        line-height:30px;
+    }
+    .button-email{
+        background: none;
+        width: 160px;
+        height:40px;
+        font-size: 16px;
+        font-weight: 500;
+        color:var(--color3);
+        margin-right: 10px;
+    }
+    .button-join{
+        width: 130px;
+        height:40px;
+        font-size: 16px;
+        font-weight: 500;
+        color:var(--color2);
+        background-color: var(--color1);
+    }
+    .navbar-container .button-group button{
+        margin-left:15px;
+        width: 150px;
+        height: 35px;
+        background: none;
+        border:3px solid var(--color1);
+        border-radius: 17px;
+        outline: none;
+        font-size: 16px;
+        color:var(--color3);
+    }
+    .contact-heading{
+        font-family: var(--font2);
+        font-size: 30px;
+        color:var(--color3);
+        font-weight: 400;
+    }
+}
+@media (max-width: 600px){
+    .nav-button{
+        display: none;
+    }
+    .navbar-container{
+        margin:20px 0px 80px 0px;
+    }
+    .hero-container-right h1{
+        font-family: var(--font1);
+        font-size: 30px;
+        text-align: center;
+    }
+    .hero-container-right p{
+        width: 90%;
+        height: fit-content;
+        text-align: center;
+        margin: 20px 0px;
+        text-align: center;
+        font-size: 20px;
+        color:var(--color3);
+        line-height:30px;
+    }
 }
